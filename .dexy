@@ -1,0 +1,8 @@
+{
+    "*.tex|jinja": { "allinputs": true},
+
+    "*.c|pyg|l": {},
+    "*.py|pyg|l": {},
+    "*.rb|pyg|l": {},
+    "*.txt|jinja": {}
+}
