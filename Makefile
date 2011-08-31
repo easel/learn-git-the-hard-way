@@ -1,7 +1,7 @@
 JUNK_FILES=$(FINAL).* *.aux *.log styles/*.aux
 SOURCE=book
-WEBSITE=$(USER)@learncodethehardway.org:/var/www/learncodethehardway.org
-FINAL=book-final
+WEBSITE=$(USER)@YOURSITEHERE:/var/www/YOURSITEHERE
+FINAL=booke-final
 
 book:
 	dexy
@@ -13,17 +13,14 @@ book:
 
 draft: $(FINAL).dvi
 
-$(FINAL).dvi:
+$(FINAL).pdf:
 	cp $(SOURCE).tex $(FINAL).tex
-	latex -halt-on-error $(FINAL).tex
+	pdflatex -halt-on-error $(FINAL).tex
 
 html: 
 	cd output && htlatex $(FINAL).tex
 	cd output && tidy -quiet -ashtml -omit -ic -m $(FINAL).html || true
 	
-$(FINAL).pdf: $(FINAL).dvi
-	dvipdf $(FINAL).dvi
-
 view: $(FINAL).pdf
 	evince $(FINAL).pdf
 
