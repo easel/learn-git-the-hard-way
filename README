@@ -11,13 +11,15 @@ a crash course in LaTeX that uses the features of this book kit.
 Getting Started
 ===============
 
-First thing is, you should install the following:
+First thing is, you should install both tex-live and dexy.
 
-1. tex-live
-2. dexy from http://dexy.it/
+To install tex-live, follow the quick instructions [here](http://www.tug.org/texlive/quickinstall.html).
 
-Sorry I can't give you better instructions than that.  I'll work on some 
-at a later date.
+As for dexy, make sure you have python installed, and then simply
+
+    $ easy_install dexy
+
+You may or may not need sudo. If this doesn't work for you, check the instructions on [Dexy's site](http://dexy.it).
 
 Once you have those, try this:
 
