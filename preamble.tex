@@ -1,6 +1,6 @@
 \documentclass{book}
 \usepackage{iwona,palatino}
-\usepackage{pastie}
+\usepackage{style}
 %\usepackage{palatino}
 \usepackage[
     pdftitle={Learn X The Hard Way: Some Title Here},
@@ -21,13 +21,17 @@
 \usepackage{textcomp}
 \usepackage{listings}
 \usepackage{attrib}
+\setcounter{chapter}{0}
+\usepackage{upquote}
 \parskip 7.2pt
 
-\lstset{basicstyle=\ttfamily,
-upquote=true,
-breaklines=true,
-postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow}},
-breakatwhitespace=true
+\lstset{
+    basicstyle=\ttfamily,
+    upquote=true,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow}},
+    breakatwhitespace=true
+    numbers=left
 }
 
 % taken from http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html

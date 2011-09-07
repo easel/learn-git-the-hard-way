@@ -1,8 +1,11 @@
 {
-    "*.tex|jinja": { "allinputs": true},
-
-    "*.c|pyg|l": {},
+    "*.tex|jinja" : { "allinputs" : true },
     "*.py|pyg|l": {},
-    "*.rb|pyg|l": {},
-    "*.txt|jinja": {}
+    "*.c|pyg|l": {},
+    "*.sh|pyg|l": {},
+    "*.conf|dexy": {},
+    "*.Makefile|dexy": {},
+    "*.out|dexy": {},
+    "*.css|jinja" : {  },
+    "*.cfg|jinja" : {  }
 }

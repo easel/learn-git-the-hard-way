@@ -1,12 +1,12 @@
 JUNK_FILES=$(FINAL).* *.aux *.log styles/*.aux
 SOURCE=book
 WEBSITE=$(USER)@YOURSITEHERE:/var/www/YOURSITEHERE
-FINAL=booke-final
+FINAL=book-final
 
 book:
 	dexy
 	cp Makefile output/
-	cp pastie.sty output/
+	cp style.sty output/
 	${MAKE} -C output clean $(FINAL).pdf
 	rm -rf output/*.dvi output/*.pdf
 	${MAKE} -C output $(FINAL).pdf
@@ -18,8 +18,9 @@ $(FINAL).pdf:
 	pdflatex -halt-on-error $(FINAL).tex
 
 html: 
-	cd output && htlatex $(FINAL).tex
-	cd output && tidy -quiet -ashtml -omit -ic -m $(FINAL).html || true
+	cd output && htlatex $(FINAL).tex "book,index=1,2,next,fn-in"
+	sed -i -f clean.sed output/*.html
+	cat output/fixes.css >> output/$(FINAL).css
 	
 view: $(FINAL).pdf
 	evince $(FINAL).pdf
@@ -33,6 +34,6 @@ release: clean $(FINAL).pdf draft $(FINAL).pdf sync
 
 sync: book html
 	rsync -vz output/$(FINAL).pdf $(WEBSITE)/$(FINAL).pdf
-	rsync -vz output/$(FINAL).html $(WEBSITE)/index.html
-	rsync -vz output/$(FINAL).css $(WEBSITE)/
+	rsync -vz output/$(FINAL).html $(WEBSITE)/book/index.html
+	rsync -vz output/*.html output/*.css $(WEBSITE)/book/
 
