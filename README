@@ -107,10 +107,18 @@ is take code for your exercises and then injects it into your .tex files in a
 nice pretty printed format that's publication ready.  You use it like this:
 
 1. Edit the .dexy file and put your language extension in there like I've got.
+The syntax is FILENAME_PATTERN|FILTER1|FILTER2, etc.  For mine, I'm mostly using
+the pyg(pygmentize) filter.  For python, it looks like this: "*.py|pyg|l": {}.  *.py
+is the pattern of files to convert, pyg is the pygmentize filter for highlting code
+and "l" is the filter for converting to LaTex.  
 2. Put your code for each exercise in code/ named after each exercise.
 3. Look at the ex0.tex that I've written which shows you how to include this code.
-4. Finally, you can put the output for each program into code as ex#.txt and 
-include that as well.
+4. Finally, if you want to show the output of your programs, there are two ways to
+do this.  If you want to use dexy, you can create another entry in .dexy like this:
+"*.py|py|pyg|l".  This means, run the code through python (py), then pass the result
+to pyg (if you are generating HTML or xml or whatever it will be highlighted), and
+finally, pass to the LaTeX filter.  The other low tech way is simply to put the output for each program into code as ex#.txt and 
+include that as well. ex0.tex has both.
 
 Refer to http://dexy.it for more information on how to use it.
 
