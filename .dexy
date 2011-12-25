@@ -1,6 +1,6 @@
 {
     "*.tex|jinja" : { "allinputs" : true },
-    "*.txt|dexy":{},
+    "*.txt":{},
     "*.py|pyg|l": {},
     "*.py|py|pyg|l": {},
     "*.c|pyg|l": {},
